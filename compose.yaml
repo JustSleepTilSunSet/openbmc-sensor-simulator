@@ -1,0 +1,12 @@
+services:
+  alpine-machine:
+    image: alpine-machine:0.0.1
+    build: .
+    container_name: alpine-machine
+    volumes:
+      - "${PWD}/mock-sensor-recipe:/host-share/mock-sensor-recipe"
+      - "${PWD}/temperature-sensor:/host-share/temperature-sensor"
+    working_dir: /host-share
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
